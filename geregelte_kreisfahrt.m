@@ -1,7 +1,7 @@
-function geregelte_kreisfahrt(EG, Cv, Ch, Fnv, Fnh, kp, ki, L, iS, color)
+function geregelte_Kreisfahrt(EG, Cv, Ch, Fnv, Fnh, kp, ki, L, iS, color)
 R = 42.5;
 soll_beschleunigung = linspace(0.2, 10, 50);
-model = 'Kreisfahrt_geregelt';
+model = 'geregelte_Kreisfahrt';
 load_system(model);
 simIn = Simulink.SimulationInput(model);
 simIn = setModelParameter(simIn,...
@@ -10,14 +10,14 @@ simIn = setModelParameter(simIn,...
     'StartTime', '0',...
     'StopTime',num2str(250-0.2));
 
-simIn = setBlockParameter(simIn,"Kreisfahrt_geregelt/Einspurmodell/Reifenkräfte/Cv", "Value",string(Cv));
-simIn = setBlockParameter(simIn,"Kreisfahrt_geregelt/Einspurmodell/Reifenkräfte/Ch", "Value",string(Ch));
-simIn = setBlockParameter(simIn,"Kreisfahrt_geregelt/Einspurmodell/Reifenkräfte/Fnv","Value",string(Fnv));
-simIn = setBlockParameter(simIn,"Kreisfahrt_geregelt/Einspurmodell/Reifenkräfte/Fnh","Value",string(Fnh));
+simIn = setBlockParameter(simIn,"geregelte_Kreisfahrt/Einspurmodell/Reifenkräfte/Cv", "Value",string(Cv));
+simIn = setBlockParameter(simIn,"geregelte_Kreisfahrt/Einspurmodell/Reifenkräfte/Ch", "Value",string(Ch));
+simIn = setBlockParameter(simIn,"geregelte_Kreisfahrt/Einspurmodell/Reifenkräfte/Fnv","Value",string(Fnv));
+simIn = setBlockParameter(simIn,"geregelte_Kreisfahrt/Einspurmodell/Reifenkräfte/Fnh","Value",string(Fnh));
 
-simIn = setBlockParameter(simIn, "Kreisfahrt_geregelt/Beschleunigung", "OutValues", mat2str(soll_beschleunigung));
-simIn = setBlockParameter(simIn, "Kreisfahrt_geregelt/Steuerung", "P", num2str(kp));
-simIn = setBlockParameter(simIn, "Kreisfahrt_geregelt/Steuerung", "I", num2str(ki));
+simIn = setBlockParameter(simIn, "geregelte_Kreisfahrt/Beschleunigung", "OutValues", mat2str(soll_beschleunigung));
+simIn = setBlockParameter(simIn, "geregelte_Kreisfahrt/Steuerung", "P", num2str(kp));
+simIn = setBlockParameter(simIn, "geregelte_Kreisfahrt/Steuerung", "I", num2str(ki));
 
 out = sim(simIn);
 outputs = out.yout;

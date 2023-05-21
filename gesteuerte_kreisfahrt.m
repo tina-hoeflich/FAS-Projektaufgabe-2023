@@ -1,6 +1,6 @@
-function gesteuerte_kreisfahrt(EG, Cv, Ch, Fnv, Fnh, L, iS, color)
+function gesteuerte_Kreisfahrt(EG, Cv, Ch, Fnv, Fnh, L, iS, color)
 v = 60 / 3.6;
-model = 'Kreisfahrt';
+model = 'gesteuerte_Kreisfahrt';
 load_system(model);
 simIn = Simulink.SimulationInput(model);
 simIn = setModelParameter(simIn,...
@@ -9,10 +9,10 @@ simIn = setModelParameter(simIn,...
     'StartTime', '0',...
     'StopTime', '360');
 
-simIn = setBlockParameter(simIn,"Kreisfahrt/Einspurmodell/Reifenkräfte/Cv", "Value",string(Cv));
-simIn = setBlockParameter(simIn,"Kreisfahrt/Einspurmodell/Reifenkräfte/Ch", "Value",string(Ch));
-simIn = setBlockParameter(simIn,"Kreisfahrt/Einspurmodell/Reifenkräfte/Fnv","Value",string(Fnv));
-simIn = setBlockParameter(simIn,"Kreisfahrt/Einspurmodell/Reifenkräfte/Fnh","Value",string(Fnh));
+simIn = setBlockParameter(simIn,"gesteuerte_Kreisfahrt/Einspurmodell/Reifenkräfte/Cv", "Value",string(Cv));
+simIn = setBlockParameter(simIn,"gesteuerte_Kreisfahrt/Einspurmodell/Reifenkräfte/Ch", "Value",string(Ch));
+simIn = setBlockParameter(simIn,"gesteuerte_Kreisfahrt/Einspurmodell/Reifenkräfte/Fnv","Value",string(Fnv));
+simIn = setBlockParameter(simIn,"gesteuerte_Kreisfahrt/Einspurmodell/Reifenkräfte/Fnh","Value",string(Fnh));
 
 out = sim(simIn);
 outputs = out.yout;
