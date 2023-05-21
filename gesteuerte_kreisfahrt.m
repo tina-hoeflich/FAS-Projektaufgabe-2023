@@ -19,8 +19,8 @@ outputs = out.yout;
 outputBeschleunigung = getElement(outputs, "ay");
 outputDeltaH = getElement(outputs, "dH");
 
-x = outputBeschleunigung.Values.Data;
-y = outputDeltaH.Values.Data;
+x = down_sample(outputBeschleunigung.Values.Data);
+y = down_sample(outputDeltaH.Values.Data);
 
 plot(x, y, 'Color', color);
 hold on
