@@ -15,7 +15,7 @@ simIn = setBlockParameter(simIn,"Kreisfahrt_geregelt/Einspurmodell/Reifenkräfte
 simIn = setBlockParameter(simIn,"Kreisfahrt_geregelt/Einspurmodell/Reifenkräfte/Fnv","Value",string(Fnv));
 simIn = setBlockParameter(simIn,"Kreisfahrt_geregelt/Einspurmodell/Reifenkräfte/Fnh","Value",string(Fnh));
 
-%simIn = setBlockParameter(simIn, "Kreisfahrt_geregelt/Beschleunigung", "OutValues", mat2str(soll_beschleunigung));
+simIn = setBlockParameter(simIn, "Kreisfahrt_geregelt/Beschleunigung", "OutValues", mat2str(soll_beschleunigung));
 simIn = setBlockParameter(simIn, "Kreisfahrt_geregelt/Steuerung", "P", num2str(kp));
 simIn = setBlockParameter(simIn, "Kreisfahrt_geregelt/Steuerung", "I", num2str(ki));
 
