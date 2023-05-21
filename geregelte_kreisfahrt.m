@@ -1,4 +1,4 @@
-function geregelte_Kreisfahrt(EG, Cv, Ch, Fnv, Fnh, kp, ki, L, iS, color)
+function geregelte_kreisfahrt(EG, Cv, Ch, Fnv, Fnh, kp, ki, L, iS, color)
 R = 42.5;
 soll_beschleunigung = linspace(0.2, 10, 50);
 model = 'geregelte_Kreisfahrt';

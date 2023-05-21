@@ -1,4 +1,4 @@
-function gesteuerte_Kreisfahrt(EG, Cv, Ch, Fnv, Fnh, L, iS, color)
+function gesteuerte_kreisfahrt(EG, Cv, Ch, Fnv, Fnh, L, iS, color)
 v = 60 / 3.6;
 model = 'gesteuerte_Kreisfahrt';
 load_system(model);
