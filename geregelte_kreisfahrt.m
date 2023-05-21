@@ -1,5 +1,5 @@
 function geregelte_kreisfahrt(EG, Cv, Ch, Fnv, Fnh, kp, ki, L, iS, color)
-v = 60 / 3.6;
+R = 42.5;
 soll_beschleunigung = linspace(0.2, 10, 50);
 model = 'Kreisfahrt_geregelt';
 load_system(model);
@@ -8,7 +8,7 @@ simIn = setModelParameter(simIn,...
     'SolverType', 'Fixed-step',...
     'FixedStep', '0.01', ...
     'StartTime', '0',...
-    'StopTime', '360');
+    'StopTime',num2str(250-0.2));
 
 simIn = setBlockParameter(simIn,"Kreisfahrt_geregelt/Einspurmodell/Reifenkräfte/Cv", "Value",string(Cv));
 simIn = setBlockParameter(simIn,"Kreisfahrt_geregelt/Einspurmodell/Reifenkräfte/Ch", "Value",string(Ch));
@@ -32,6 +32,6 @@ hold on
 
 % linear
 x = linspace(0, 10, 250);
-y = x.' * (L / v.^2 + EG) * iS * 180/pi;
+y = (L / R + EG * x) * iS * 180/pi;
 plot(x, y.', '--', 'Color', color);
 end
