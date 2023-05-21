@@ -16,9 +16,10 @@ simIn = setBlockParameter(simIn,"Kreisfahrt/Einspurmodell/Reifenkräfte/Fnh","Va
 
 out = sim(simIn);
 outputs = out.yout;
-outputAccel = getElement(outputs, "ay");
+outputBeschleunigung = getElement(outputs, "ay");
 outputDeltaH = getElement(outputs, "dH");
-x = outputAccel.Values.Data;
+
+x = outputBeschleunigung.Values.Data;
 y = outputDeltaH.Values.Data;
 
 plot(x, y, 'Color', color);
